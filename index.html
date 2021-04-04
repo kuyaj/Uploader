@@ -7,8 +7,9 @@
     <title>Upload to firebase storage</title>
 </head>
 <body>
-    <progress value="0" max="100" id="uploader"></progress>
+    <!-- <progress value="0" max="100" id="uploader"></progress> -->
     <input type="file" name="" id="fileButton">
+    <label for="fileButton">Choose a file</label>
   
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-storage.js"></script>
@@ -35,10 +36,10 @@
         // Create storage reference
           var storageRef = storage.ref("zodiac/"+file.name);
         
-        //   Upload file
-        var task = storageRef.put(file);
+        // //   Upload file
+        // var task = storageRef.put(file);
 
-        alert("The photo has been uploaded!");
+        alert("The photo has been uploaded! "+file.name);
 
         task.on("state_changed", 
         function progress (snapshot){
@@ -54,5 +55,33 @@
           
       })
   </script>
+  <style>
+    #fileButton {
+      width: 0.1px;
+    	height: 0.1px;
+    	opacity: 0;
+	    overflow: hidden;
+    	position: absolute;
+	    z-index: -1;
+    }
+
+    #fileButton + label {
+      font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+    padding: 10px;
+    }
+
+    #fileButton:focus + label,
+    #fileButton + label:hover {
+      background-color: red;
+   }
+
+   #fileButton + label {
+     cursor: pointer;
+   }
+  </style>
 </body>
 </html>
