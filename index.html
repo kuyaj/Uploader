@@ -8,53 +8,22 @@
     <title>Upload to firebase storage</title>
 </head>
 <body>
-    <!-- <progress value="0" max="100" id="uploader"></progress> -->
-    <input type="file" name="" id="fileButton">
-    <label for="fileButton">Choose a file</label>
-  
+    <nav class="navigator">
+   
+      <input type="file" name="" id="fileButton">
+      <label for="fileButton">Upload</label>
+      <button id="retrieve">Retrieve</button>
+    </nav>
+    <div class="display">
+      <img src="" alt="" id="photo">
+    </div>
+    <div class="download">
+      <img src="" alt="" id="download_photo">
+    </div>
+
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-storage.js"></script>
-    <script>
-        var firebaseConfig = {
-          apiKey: "AIzaSyDV6ATuxNt1OWtIPOioBCtuKDRlSySOQxA",
-          authDomain: "photo-uploader-249b1.firebaseapp.com",
-          projectId: "photo-uploader-249b1",
-          storageBucket: "photo-uploader-249b1.appspot.com",
-          messagingSenderId: "940509958316",
-          appId: "1:940509958316:web:bfcb6500d54e3edc664f09"
-      };
-
-      firebase.initializeApp(firebaseConfig);
-      
-      var storage = firebase.storage();
-
-      var uploader = document.getElementById("uploader");
-    //Get file
-      var fileButton = document.getElementById("fileButton");
-    
-      fileButton.addEventListener("change", function(e) {
-          var file = e.target.files[0];
-        // Create storage reference
-          var storageRef = storage.ref("zodiac/"+file.name);
-        
-        // //   Upload file
-        // var task = storageRef.put(file);
-
-        alert("The photo has been uploaded! "+file.name);
-
-        task.on("state_changed", 
-        function progress (snapshot){
-            var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-            uploader.value = percentage;
-        },
-        function(error){
-          console.log(error);
-        },
-        function complete(){
-
-        })
-          
-      })
-  </script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
