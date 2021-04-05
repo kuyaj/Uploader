@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>Upload to firebase storage</title>
 </head>
 <body>
@@ -47,7 +48,7 @@
             uploader.value = percentage;
         },
         function(error){
-
+          console.log(error);
         },
         function complete(){
 
@@ -55,33 +56,5 @@
           
       })
   </script>
-  <style>
-    #fileButton {
-      width: 0.1px;
-    	height: 0.1px;
-    	opacity: 0;
-	    overflow: hidden;
-    	position: absolute;
-	    z-index: -1;
-    }
-
-    #fileButton + label {
-      font-size: 1.25em;
-    font-weight: 700;
-    color: white;
-    background-color: black;
-    display: inline-block;
-    padding: 10px;
-    }
-
-    #fileButton:focus + label,
-    #fileButton + label:hover {
-      background-color: red;
-   }
-
-   #fileButton + label {
-     cursor: pointer;
-   }
-  </style>
 </body>
 </html>
