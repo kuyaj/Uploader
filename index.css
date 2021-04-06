@@ -4,31 +4,26 @@ body{
     font-family: 'Roboto', sans-serif;
     margin:auto;
 }
+#photo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
 
 .display {
-  border: 1px solid #2ecc71;
-  background-color: #2ecc71;
+  border: transparent;
   padding: 10px;
 }
 
 .download {
-  border: 1px solid #c0392b;
-  background-color: #c0392b;
+  border: transparent;
   padding: 10px;
 }
 
 .navigator {
     border: 1px solid #636e72;
     padding: 20px 3px;
-}
-
-#retrieve {
-  border:1px solid#636e72;
-  padding: 10px;
-  font-family:'Roboto', sans-serif;
-  color: #2d3436;
-  font-size: 16px;
-  background-color: white;
 }
 
 
@@ -42,10 +37,6 @@ body{
 }
 
 
-#retrieve:focus {
-  outline: none;
-  box-shadow: none;
-}
 
 #select:focus {
   outline: none;
@@ -73,9 +64,4 @@ body{
 
  #fileButton + label {
    cursor: pointer;
- }
-
- img {
-   margin: 10px;
-   width:300px;
  }

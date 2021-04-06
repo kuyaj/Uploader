@@ -16,15 +16,16 @@ var uploader = document.getElementById("uploader");
 //Get file
 var fileButton = document.getElementById("fileButton");
 
-var retrieve = document.getElementById("retrieve");
 
-
-retrieve.addEventListener("click", function(){
-  alert("Hello, retrieve buttton works!");
-})
-
+// 1. let users select a photo from his computer
+// 2. display the photo to photo displayer
+// 3. upload the photo the firebase storage
+// 4. get the url link of the photo from the firebase minutes after it's uploaded
+// 5. upload the url link together with it's identifier to the firebase database
+// 6. fetch those photo url links from firebase storage and display them all thru html 
 
 fileButton.addEventListener("change", function(e) {
+
     var file = e.target.files[0];
   // Create storage reference
     var storageRef = storage.ref("zodiac/"+file.name);
@@ -32,18 +33,18 @@ fileButton.addEventListener("change", function(e) {
     reader = new FileReader();
     reader.onload = function(){
        document.getElementById("photo").src = reader.result;
-   }
+    }
 
-  reader.readAsDataURL(file);
+   reader.readAsDataURL(file);
+ 
   
-  //Upload file
+  //Upload file to storage
   var task = storageRef.put(file);
 
-  alert("The photo has been uploaded! "+file.name);
+  alert("The photo has been uploaded: "+file.name);
 
-  task.on('state_changed', function(snapshot){
-    console.log("Loading...")  
-    task.snapshot.ref.getDownloadURL().then(function(url){
+    task.on('state_changed', function(snapshot){
+      task.snapshot.ref.getDownloadURL().then(function(url){
         photoURL = url;
          console.log("URL :"+photoURL)
 
@@ -52,14 +53,14 @@ fileButton.addEventListener("change", function(e) {
             firebase.database().ref("zodiac/"+fileName).set({
                 name: fileName,
                 link: photoURL
-        });
-        alert("Photo uploaded to firebase!");
-        console.log(file);
-    });
-  }),
-  function(error){
-      alert("Error in saving photo!")
-  }
+            });
+        alert("Photo URL uploaded to firebase!");
+      });
+    }),
+    function(error){
+        alert("Error in saving photo!")
+    }
+
 
     
 })
