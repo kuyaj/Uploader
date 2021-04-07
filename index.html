@@ -9,17 +9,29 @@
 </head>
 <body>
     <nav class="navigator">
-   
       <input type="file" name="" id="fileButton">
       <label for="fileButton">Upload</label>
     </nav>
-    <div class="display">
+    <!-- <div class="display">
       <img src="" alt="" id="photo">
-    </div>
+    </div> -->
     <div class="download">
-      <img src="" alt="" id="download_photo">
+      <div id="zodiacs"></div>  
     </div>
 
+
+    <script id="entry-template" type="text/x-handlebars-template">
+      <div class="entry">
+        {{#each zodiac}}
+        <h1>{{this.name}}</h1>
+        <div class="body">
+          <img src="{{this.link}}" alt="" id="photo1">
+        </div>
+        {{/each}}
+      </div>
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>

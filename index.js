@@ -10,9 +10,13 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+// storage
 var storage = firebase.storage();
 
-var uploader = document.getElementById("uploader");
+//firebase 
+var database = firebase.database();
+
+var retrieve = document.getElementById("retrieve");
 //Get file
 var fileButton = document.getElementById("fileButton");
 
@@ -60,7 +64,25 @@ fileButton.addEventListener("change", function(e) {
     function(error){
         alert("Error in saving photo!")
     }
+})
 
+  document.addEventListener("DOMContentLoaded", function(){
+    database.ref('zodiac').on('value', snapShot => {
+      let zodiac = Object.entries(snapShot.val()).map((item) => {
+        var [keys, values] = item;
+        var { name, link } = values;
+        return {
+          name: name,
+          link: link
+        }
+      }).reverse();
+  
+      var source = document.getElementById("entry-template").innerHTML;
+      var template = Handlebars.compile(source);
+      var context = { zodiac: zodiac };
+      var html = template(context);
+  
+      document.getElementById("zodiacs").innerHTML = html;
+  });
 
-    
 })

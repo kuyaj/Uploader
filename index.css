@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body{
+    background-color: #dfe6e9;
     font-family: 'Roboto', sans-serif;
     margin:auto;
 }
@@ -11,21 +12,47 @@ body{
   width: 30%;
 }
 
+#photo1 {
+  width: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
+}
+
 .display {
   border: transparent;
   padding: 10px;
 }
 
 .download {
-  border: transparent;
+  background-color: white;
+  border: 1px solid black;
   padding: 10px;
 }
 
 .navigator {
+    background-color: white;
     border: 1px solid #636e72;
     padding: 20px 3px;
 }
 
+
+/* 
+#retrieve {
+  border: 1px solid #636e72;
+  color: #2d3436;
+  background-color: white;
+  padding: 10px;
+  margin: 1px;
+  font-size: 16px;
+  font-family:'Roboto', sans-serif;
+  cursor: pointer;
+}
+
+#retrieve:focus {
+  outline: none;
+  box-shadow: none;
+} */
 
 #select {
   border:1px solid#636e72;
@@ -35,8 +62,6 @@ body{
   font-size: 16px;
   background-color: white;
 }
-
-
 
 #select:focus {
   outline: none;
