@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
     <title>Upload to firebase storage</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav class="navigator">
-      <input type="file" name="" id="fileButton">
+      <input type="file" name="" id="fileButton" />
       <label for="fileButton">Upload</label>
     </nav>
     <!-- <div class="display">
       <img src="" alt="" id="photo">
     </div> -->
     <div class="download">
-      <div id="zodiacs"></div>  
+      <div id="zodiacs"></div>
     </div>
 
-
     <script id="entry-template" type="text/x-handlebars-template">
-      <div class="entry">
+      <div class="card-group">
         {{#each zodiac}}
-        <h1>{{this.name}}</h1>
-        <div class="body">
-          <img src="{{this.link}}" alt="" id="photo1">
+        <div class="card">
+          <div class="card-photo">
+            <img src="{{this.link}}">
+          </div>
+          {{this.name}}
         </div>
         {{/each}}
-      </div>
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
@@ -36,5 +36,5 @@
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
     <script src="index.js"></script>
-</body>
+  </body>
 </html>

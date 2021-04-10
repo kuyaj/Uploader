@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-body{
-    background-color: #dfe6e9;
-    font-family: 'Roboto', sans-serif;
-    margin:auto;
+body {
+  background-color: #dfe6e9;
+  font-family: "Roboto", sans-serif;
+  margin: auto;
 }
 #photo {
   display: block;
@@ -16,7 +16,7 @@ body{
   width: 30%;
   display: block;
   margin-left: auto;
-  margin-right: auto; 
+  margin-right: auto;
 }
 
 .display {
@@ -31,11 +31,10 @@ body{
 }
 
 .navigator {
-    background-color: white;
-    border: 1px solid #636e72;
-    padding: 20px 3px;
+  background-color: white;
+  border: 1px solid #636e72;
+  padding: 20px 3px;
 }
-
 
 /* 
 #retrieve {
@@ -55,9 +54,9 @@ body{
 } */
 
 #select {
-  border:1px solid#636e72;
+  border: 1px solid#636e72;
   padding: 10px;
-  font-family:'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #2d3436;
   font-size: 16px;
   background-color: white;
@@ -69,24 +68,57 @@ body{
 }
 
 #fileButton {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
 
-  #fileButton + label {
-    border: 1px solid #636e72;
-    color: #2d3436;
-    background-color: white;
-    padding: 10px;
-    margin: 1px;
-  }
+#fileButton + label {
+  border: 1px solid #636e72;
+  color: #2d3436;
+  background-color: white;
+  padding: 10px;
+  margin: 1px;
+}
 
+#fileButton + label {
+  cursor: pointer;
+}
 
+/*  card group */
 
- #fileButton + label {
-   cursor: pointer;
- }
+.card-group {
+  border: transparent;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.card-group > .card {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+  border: transparent;
+  margin: 10px;
+}
+
+.card {
+  width: auto;
+  border-radius: 2px;
+}
+
+.card > .card-header {
+  border: transparent;
+  padding: 5px;
+}
+
+.card > .card-photo {
+  border: transparent;
+}
+
+.card-photo img {
+  width: 100%;
+}
