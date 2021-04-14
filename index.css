@@ -5,6 +5,18 @@ body {
   font-family: "Roboto", sans-serif;
   margin: auto;
 }
+
+button {
+  border: 1px solid #d63031;
+  padding: 5px;
+  background: #d63031;
+  color: white;
+}
+
+.delete-button {
+  border: 1px solid red;
+  padding: 3px;
+}
 #photo {
   display: block;
   margin-left: auto;

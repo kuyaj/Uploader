@@ -16,7 +16,7 @@ var storage = firebase.storage();
 //firebase
 var database = firebase.database();
 
-var retrieve = document.getElementById("retrieve");
+// var retrieve = document.getElementById("retrieve");
 //Get file
 var fileButton = document.getElementById("fileButton");
 
@@ -81,5 +81,37 @@ document.addEventListener("DOMContentLoaded", function () {
     var html = template(context);
 
     document.getElementById("zodiacs").innerHTML = html;
+
+    // var playButton = document.querySelector("#delete");
+    // playButton.addEventListener(
+    //   "click",
+    //   function (e) {
+    //     alert("This works dude!");
+    //   },
+    //   false
+    // );
   });
 });
+
+// / deleting file from firebase storage
+
+// var fileUrl =
+// 'https://firebasestorage.googleapis.com/b/bucket/o/images%20geeksforgeeks.jpg';
+
+// // Create a reference to the file to delete
+// var fileRef = storage.refFromURL(fileUrl);
+
+// console.log("File in database before delete exists : "
+//         + fileRef.exists())
+
+// // Delete the file using the delete() method
+// fileRef.delete().then(function () {
+
+//     // File deleted successfully
+//     console.log("File Deleted")
+// }).catch(function (error) {
+//     // Some Error occurred
+// });
+
+// console.log("File in database after delete exists : "
+//         + fileRef.exists())
