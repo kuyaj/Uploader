@@ -82,14 +82,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("zodiacs").innerHTML = html;
 
-    // var playButton = document.querySelector("#delete");
-    // playButton.addEventListener(
-    //   "click",
-    //   function (e) {
-    //     alert("This works dude!");
-    //   },
-    //   false
-    // );
+    var btns = document.querySelectorAll(".delete");
+
+    Array.prototype.forEach.call(btns, function addClickListener(btn) {
+      btn.addEventListener("click", function (event) {
+        var fileUrl = this.dataset.url;
+
+        // Create a reference to the file to delete
+        var fileRef = storage.refFromURL(fileUrl);
+
+        console.log(
+          "File in database before delete exists : " + fileRef.exists()
+        );
+
+        // Delete the file using the delete() method
+        fileRef
+          .delete()
+          .then(function () {
+            // File deleted successfully
+            console.log("File Deleted");
+          })
+          .catch(function (error) {
+            // Some Error occurred
+          });
+      });
+    });
   });
 });
 
@@ -112,6 +129,3 @@ document.addEventListener("DOMContentLoaded", function () {
 // }).catch(function (error) {
 //     // Some Error occurred
 // });
-
-// console.log("File in database after delete exists : "
-//         + fileRef.exists())

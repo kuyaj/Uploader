@@ -13,10 +13,16 @@ button {
   color: white;
 }
 
-.delete-button {
+.delete {
   border: 1px solid red;
   padding: 3px;
 }
+
+.delete:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 #photo {
   display: block;
   margin-left: auto;
@@ -125,6 +131,22 @@ button {
   border: transparent;
 }
 
+.card > .card-name {
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.card > .card-button {
+  border: transparent;
+}
+
+.card-button > .delete {
+  width: 100%;
+}
+
 .card-photo img {
   width: 100%;
+  overflow: hidden;
+  height: 150px;
 }

@@ -25,9 +25,11 @@
         <div class="card">
           <div class="card-photo">
             <img src="{{this.link}}">
-            <button onclick="deleteFunction()">Delete</button>
           </div>
-          {{this.name}}
+          <div class="card-name">{{this.name}}</div>
+          <div class="card-button">
+            <button data-url="{{this.link}}" class="delete">Delete</button>
+          </div>
         </div>
         {{/each}}
     </script>
