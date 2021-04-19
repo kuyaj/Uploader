@@ -87,23 +87,18 @@ document.addEventListener("DOMContentLoaded", function () {
     Array.prototype.forEach.call(btns, function addClickListener(btn) {
       btn.addEventListener("click", function (event) {
         var fileUrl = this.dataset.url;
-
+        var dataRef = this.dataset.ref;
         // Create a reference to the file to delete
         var fileRef = storage.refFromURL(fileUrl);
 
-        console.log(
-          "File in database before delete exists : " + fileRef.exists()
-        );
-
-        // Delete the file using the delete() method
         fileRef
           .delete()
           .then(function () {
-            // File deleted successfully
-            console.log("File Deleted");
+            database.ref("/zodiac/" + dataRef).remove();
+            alert("File deleted!");
           })
           .catch(function (error) {
-            // Some Error occurred
+            alert(error);
           });
       });
     });
@@ -129,3 +124,22 @@ document.addEventListener("DOMContentLoaded", function () {
 // }).catch(function (error) {
 //     // Some Error occurred
 // });
+
+///testing
+
+document.getElementById("test").addEventListener("click", function () {
+  var test_url =
+    "https://firebasestorage.googleapis.com/v0/b/photo-uploader-249b1.appspot.com/o/zodiac%2Faquarius.jpg?alt=media&token=9cea8ab0-f99a-441e-958d-da7104cca095";
+
+  var fileRef = storage.refFromURL(test_url);
+  alert(fileRef);
+  fileRef
+    .delete()
+    .then(function () {
+      database.ref("/zodiac/aquarius").remove();
+      alert("File deleted!");
+    })
+    .catch(function (error) {
+      alert(error);
+    });
+});

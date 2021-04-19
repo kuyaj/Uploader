@@ -132,7 +132,7 @@ button {
 }
 
 .card > .card-name {
-  border: 1px solid black;
+  border: transparent;
   padding: 10px;
   margin-bottom: 2px;
 }
@@ -148,5 +148,5 @@ button {
 .card-photo img {
   width: 100%;
   overflow: hidden;
-  height: 150px;
+  height: 200px;
 }
